@@ -1,0 +1,67 @@
+{
+    "name": "hideit",
+    "displayName": "encrypt & decrypt",
+    "description": "decrypts and encrypts files using AES",
+    "version": "0.0.2",
+    "publisher": "vishal",
+    "engines": {
+        "vscode": "^1.32.0"
+    },
+    "repository": {
+        "url": "https://github.com"
+    },
+    "icon": "icon.png",
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.file_encrypt",
+                "title": "encrypt it"
+            },
+            {
+                "command": "extension.file_decrypt",
+                "title": "decrypt it"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "extension.file_encrypt"
+                },
+                {
+                    "command": "extension.file_decrypt"
+                }
+            ],
+            "editor/context": [
+                {
+                    "command": "extension.file_encrypt"
+                },
+                {
+                    "command": "extension.file_decrypt"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "tslint ./src/*.ts",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^6.0.40",
+        "tslint": "^5.16.0",
+        "typescript": "^3.5.1",
+        "@types/vscode": "^1.32.0"
+    },
+    "dependencies": {
+        "@types/aes-js": "^3.1.0",
+        "aes-js": "^3.1.2"
+    }
+}
